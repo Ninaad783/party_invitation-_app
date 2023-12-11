@@ -1,0 +1,62 @@
+<html>
+    <head>
+            <title>birthday tracker app</title>
+            <style>
+                *{font-family: Arial; font-size: 40px;}
+                    body{background-color: azure;}
+                    .btn{width:30%; border-radius:30px;}
+            </style>
+
+            <script>
+                let frds=["ninaad", "avdhoot"];
+                    function operation()
+                    {
+                        event.preventDefault();
+                        let action=document.activeElement.value;
+                        if(action=="add")
+                        {
+                            let name=prompt("entr the name add");
+                            if(name!="")
+                                frds.push(name);
+                            show();
+                                
+                            
+                        }
+
+                        else if(action=="rem")
+                        {
+                            let name=prompt("entr name remove ");
+                            let i=frds.indexOf(name);
+                            if(i==-1)
+                                alert(name+"not found");
+                            else      
+                                frds.splice(i,1);
+                            show();
+                        }
+
+                        
+                    }
+
+                        function show()
+                        {
+                            let ans=document.getElementById("ans");
+                            ans.innerHTML=frds;
+                        }
+                    </script>
+
+                    </head>
+    </head>
+    <body>
+        <center>
+            <h1>vishal ka bday</h1>
+            <form onsubmit="operation()">
+                <input type="submit" value="add" class="btn">
+                <input type="submit" value="rem" class="btn">
+            </form>
+            <h2 id="ans"/>
+            <script>
+                show();
+            </script>
+        </center>
+    </body>
+</html>
